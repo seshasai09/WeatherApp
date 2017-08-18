@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sky Cast</title>
+    <style>
+        .angular-google-map-container {
+            height: 400px;
+        }
+      /* body { background-image: url(views/background.jpg); }*/
+    </style>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/geolocator/2.1.1/geolocator.min.js"></script>
+
+    <script src="//rawgit.com/angular-ui/angular-google-maps/2.1.5/dist/angular-google-maps.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCrTXKG-p7iI-sES_vOSlGvCmfqrS65XbA"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+
+
+
+
+    <script src="app.js"></script>
+    <script src="routes.js"></script>
+    <script src="service/google.maps.api.service.js"></script>
+    <script src="service/weather.service.js"></script>
+    <script src="service/user.service.js"></script>
+    <script src="views/current.location.weather.controller.js"></script>
+    <script src="views/current.weather.controller.js"></script>
+    <script src="views/historical.weather.trends.controller.js"></script>
+    <script src="views/user.controller.js"></script>
+    <script src="views/user.previous.searches.controller.js"></script>
+    <script src="views/past.weather.details.controller.js"></script>
+    <script src="views/help.controller.js"></script>
+
+</head>
+<body ng-app="SkyCast" ng-controller="UserController">
+<header>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary ">
+        <div class="container">
+            <div class="navbar-header ">
+                <a class="navbar-brand" href="#/">
+                    SkyCast</a>
+                    <b ng-show="currentUser.username!=null"> Welcome {{currentUser.username}}</b>
+
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/">Home</a></li>
+                <li><a ng-show="currentUser.username==null" href="#/signup">SignUp</a></li>
+                <li><a ng-show="currentUser.username!=null" href="#/currentweather">Weather Details</a></li>
+                <li><a ng-show="currentUser.username==null" href="#/login">Login</a></li>
+                <li><a ng-show="currentUser.username!=null" href="" ng-click="logout()">Logout</a></li>
+                <li><a ng-show="currentUser.username!=null" href="#/userprevioussearches">My Previous Search</a></li>
+                <li><a href="#/help">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div id="main" class="container-fluid">
+    <div ng-view>
+
+    </div>
+</div>
+<div class="col-xs-12 col-md-10">
+    <div id="map-canvas" style="width:10px;height:10px"></div>
+</div>
+
+</body>
+</html>

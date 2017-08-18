@@ -1,0 +1,22 @@
+<div>
+    <div class="col-xs-12 col-md-10 text-right text-center">
+        <h4>Summary of Weather for the week <b>{{model.weeksummary}}</b></h4>
+        <table class="table table-responsive table-bordered table-striped">
+            <tr>
+                <td>Day</td>
+                <td>Maximum Temperature</td>
+                <td>Minimum Temperature</td>
+                <td>Summary</td>
+                <td>Humidity</td>
+            </tr>
+            <tr ng-repeat="data in model.weekdata">
+                <td>{{data.time * 1000 | date:'MM-dd-yyyy'}}</td>
+                <td>{{ data.temperatureMax }}</td>
+                <td>{{ data. temperatureMin}}</td>
+                <td>{{ data. summary}}</td>
+                <td>{{data.humidity}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>

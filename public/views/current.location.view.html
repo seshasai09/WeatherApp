@@ -1,0 +1,66 @@
+
+<div>
+
+    <div>
+        <h3 class="text-center">
+            Welcome to SkyCast {{currentUser.username}}
+        </h3>
+    </div>
+    <div class="text-center; container" ng-show="currentUser.username==null">
+        <h4 class="text-warning ">
+            <p>
+            SkyCast is one it's kind of app that lets you know the current weather data for most of the places around the world.
+            <br>
+            You just have to place the marker at the desired location on the map !!!
+            </p>
+            <br>
+            SkyCast provides information about the weather summary and temperature trends for the next 7days.
+            <br>
+            SkyCast also offer services to analyze the temperature trends for the next 48 hour and humidity trends for next 7 days
+            <br>
+            We also offer services to analyze the temperature trends for past 30 days. You can also keep track of
+            <br>
+            previous searches you have made and get the details about the searches.
+            <br><br>
+            <p>
+            So what are you waiting for sign up with us !!!
+            </p>
+
+        </h4>
+    </div>
+    <div class="text-center"ng-show="model.current==null && currentUser.username!=null"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></div>
+
+    <div ng-show="model.current==null && currentUser.username!=null">
+        <h5 class="text-center">
+            We are loading current weather data of your location
+        </h5>
+    </div>
+    <div class="text-center:" style="color: red">{{model.errorMessage}}</div>
+    <br>
+    <div ng-show="model.current!=null && currentUser.username!=null">
+        <div class="text-center">
+            <h4>Current Temperature is <b>{{model.current.apparentTemperature}}</b></h4>
+            <h4> <span class="glyphicon glyphicon-cloud">Weather Summary is <b>{{model.current.summary}}</b></span></h4>
+        </div>
+        <br>
+        <div class="col-xs-12 col-md-10 text-right text-center">
+            <h5>Summary of Weather for the week <b>{{model.weeksummary}}</b></h5>
+            <table class="table table-responsive table-bordered table-striped">
+                <tr>
+                    <td>Day</td>
+                    <td>Maximum Temperature</td>
+                    <td>Minimum Temperature</td>
+                    <td>Summary</td>
+                    <td>Humidity</td>
+                </tr>
+                <tr ng-repeat="data in model.weekdata">
+                    <td>{{data.time * 1000 | date:'MM-dd-yyyy'}}</td>
+                    <td>{{ data.temperatureMax }}</td>
+                    <td>{{ data. temperatureMin}}</td>
+                    <td>{{ data. summary}}</td>
+                    <td>{{data.humidity}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div >
+
+    <div>
+        <b>Note: Please enter dates in the last 30 days. Startdate is always less than end date. Format of date is YYYY-MM-DD</b>
+    </div>
+    <div class="form-inline; form-horizontal">
+    <div>
+        Start date
+        <input type="date"  data-date-format='YYYY-MM-DD' ng-model="model.startDate" required="required">
+
+        End date
+        <input type="date" ng-model="model.endDate" required="required">
+    </div>
+    </div>
+
+    <div>
+        <h3 style="color: red">{{model.errorMessage}}</h3>
+    </div>
+    <div class="btn-group" >
+        <button ng-show="model.startDate!=null" class ="btn btn-group-*; btn-primary" ng-click="model.getTrends()"> Temperature Trends</button>
+        <button ng-show="model.startDate!=null" class ="btn btn-group-*; btn-primary" ng-click="model.maxTempTrends()"> Maximum Temperature Trend</button>
+        <button ng-show="model.startDate!=null" class ="btn btn-group-*; btn-primary" ng-click="model.minTempTrends()"> Minimum Temperature Trend</button>
+        <button ng-show="model.startDate!=null" class ="btn btn-group-*; btn-primary" ng-click="model.weatherTrends()"> Weather Trends</button>
+        <button ng-show="model.startDate==null" class ="btn btn-group-*; btn-primary" ng-click="model.weatherTrendsForNext48Hours()"> Temperature Trend for next 48 hours</button>
+        <button ng-show="model.startDate==null" class ="btn btn-group-*; btn-primary" ng-click="model.nextWeekHumidityData()"> Humidity Trend for next 7 days</button>
+    </div>
+    <div class="text-center"ng-show="click"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></div>
+    <div ng-show="model.option=='mix'" class="text-center">
+    <canvas width="1000px" height="300px" id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"
+            chart-series="series" ></canvas>
+    </div>
+    <div ng-show="model.option=='max'" class="text-center">
+        <canvas width="1000px" height="300px" id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series">
+        </canvas>
+    </div>
+    <div ng-show="model.option=='min'" class="text-center">
+        <canvas width="1000px" height="300px" id="line2" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series">
+        </canvas>
+    </div>
+    <div  ng-show="model.option=='dis' && data!=null" class="text-center">
+        <canvas width="1000px" height="300px" id="pie" class="chart chart-pie"
+                chart-data="data" chart-labels="labels" chart-options="options">
+        </canvas>
+    </div>
+    <div ng-show="model.option=='48hour'" class="text-center">
+        <canvas width="1000px" height="300px" id="line3" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series">
+        </canvas>
+    </div>
+    <div ng-show="model.option=='humidity'" class="text-center">
+        <canvas width="1000px" height="300px" id="humidity" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-series="series">
+        </canvas>
+    </div>
+</div>

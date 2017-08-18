@@ -1,0 +1,78 @@
+<div>
+    <h4>Click on any of the links to know more about SkyCast. The links present to you mockup screens of the app </h4>
+<div class="btn-group btn-info">
+    <div class="btn" ng-click="signupDisp()">
+        Register
+    </div>
+    <div class="btn " ng-click="loginDisp()">
+        Login
+        </div>
+    <div class="btn" ng-click="weatherDetailsDsip()">
+        Weather Details
+        </div>
+    <div class="btn" ng-click="locationWeatherDetailDisp()">
+        Location Details
+    </div>
+    <div class="btn" ng-click="zoomiDisp()">
+        Zoom In
+        </div>
+    <div class="btn" ng-click="zoomoDisp()">
+        Zoom Out
+        </div>
+    <div class="btn" ng-click="historicalWeatherDetailDisp()">
+        Historical Details
+        </div>
+    <div class="btn" ng-click="humidDisp()">
+        Humidity Trends
+        </div>
+    <div class="btn" ng-click="temperatureDisp()">
+        Next 48 hours temperature Trends
+        </div>
+    <div class="btn" ng-click="weatherTrendDisp()">
+        Weather trends
+    </div>
+    <div class="btn" ng-click="MinMaxtempDisp()">
+        Temperature Trends
+    </div>
+</div>
+    <div ng-show="register"><h5 class="text-success"><b>Register with SkyCast by filling the details on signup page</b></h5><img src="../views/images/img_signup.png"></div>
+    <div ng-show="login"><h5 class="text-success"><b>Login to your on account on SkyCast using your username</b></h5><img  src="../views/images/img_login.png"></div>
+    <div ng-show="weatherDetails">
+        <h5 class="text-success">
+            <p><b>Once you log in you are navigated to weather details page.<br>On the Weather details page you can drag the marker using
+            the mouse pointer to any location on the map.</b></p></h5><img  src="../views/images/img_weather_details.png"></div>
+    <div ng-show="locationWeatherDetail"><h5 class="text-success"><b>Once you selected the location on the map<br>
+        Below the map you can see the details about the weather for the selected location.
+    <br>You can click on the Get Historical Weather Trends Button to know about the weather trends of the location</b></h5><img  src="../views/images/img_location_weather_details.png"></div>
+    <div ng-show="historicalWeatherDetail">
+        <h5 class="text-success">
+            <p><b>On this Page You can click on the Temperature Trends for next 48 hours Button or Humidity Trends for next 7 days button
+            <br>without entering the dates to get the details. On entering the dates you see the button related to Trends for the entered dates</b></p></h5>
+        <img  src="../views/images/img_get_historical_weather_details.png"></div>
+    <div ng-show="weatherTrend">
+        <h5 class="text-success">
+            <p><b>For the dates entered, you can visulize weather trends for the dates. Hover over the chart for the legend </b></p></h5>
+      <img   src="../views/images/img_get_historical_weather_details_weather_trends_pie.png"></div>
+    <div ng-show="temperature">
+        <h5 class="text-success">
+            <p><b>For the dates entered you can visualize the Temperature range for next 48 hours</b></p></h5>
+        <img  src="../views/images/img_get_historical_weather_details_temperature_trends_48hours.png"></div>
+    <div ng-show="humid">
+        <h5 class="text-success">
+            <p><b>
+                You can visualize the Humidity trend for next 7 days
+            </b></p></h5>
+        <img  src="../views/images/img_get_historical_weather_details_humidity_trends_7days.png"></div>
+    <div ng-show="zoomo">
+        <h5 class="text-success">
+            <b>You can use the '-' on the map to zoom into the map</b></h5>
+        <img  src="../views/images/img_zoom_out.png"></div>
+    <div ng-show="zoomi">
+        <h5 class="text-success">
+            <b>You can use the '+' on the map to zoom into the map</b></h5>
+        <img  src="../views/images/img_zoomin.png"></div>
+    <div ng-show="minMaxtemp">
+        <h5 class="text-success">
+            <b>You can use visualize the maximum and minimum temperature for the dates entered</b></h5>
+        <img  src="../views/images/img_get_historical_weather_details_Temperature_trends.png"></div>
+</div>

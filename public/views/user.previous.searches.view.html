@@ -1,0 +1,24 @@
+
+<div>
+         <div class="text-center">
+            <h3>Hey <b><i class="text-capitalize">{{currentUser.username}}</i> the the details of your previous searches</b>.</h3>
+        </div>
+        <br>
+        <div class="col-xs-12 col-md-10 text-right text-center">
+            <table class="table table-responsive table-bordered table-striped">
+                <tr>
+                    <td>Date</td>
+                    <td>PinCode</td>
+                    <td>Latitude</td>
+                    <td>Longitude</td>
+                </tr>
+                <tr ng-repeat="data in model.previousSearchs" >
+                    <td ><a href="#/pastweatherdetails/{{data.latitude}}/{{data.longitude}}/{{data.date}}">{{data.date | date:'MM/dd/yyyy'}}</a></td>
+                    <td>{{ data.pincode }}</td>
+                    <td>{{ data.latitude}}</td>
+                    <td>{{ data.longitude}}</td>
+                </tr>
+            </table>
+        </div>
+
+</div>

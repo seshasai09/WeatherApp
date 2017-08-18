@@ -1,0 +1,55 @@
+<div>
+    <div ng-show="model.error!=null" class="text-center" style="color: tomato"><i><h3>{{model.error}}</h3></i></div>
+    <div class="text-center;" >
+        <h5><b>Hold and Drag the marker to desired location to find out the weather deatils of the location</b></h5>
+    </div>
+    <div>
+        <ui-gmap-google-map center='model.map.center' zoom='model.map.zoom' draggable="true">
+            <ui-gmap-marker  coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+        <hr>
+    </div>
+    <br>
+    <div ng-show="query!=null" class="text-center">
+        <button type="button" class="btn btn-primary" ng-click="model.historicalWeatherTrends()">Get Historical Weather Trends</button>
+    </div>
+    <div class="text-center"ng-show="query!=null &&model.current==null"><i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></div>
+
+    <div ng-show="query!=null && model.current==null">
+        <h5 class="text-center">
+            We are loading current weather data of your location
+        </h5>
+    </div>
+<!--  display weather data-->
+    <div class="text-center" ng-show="model.current!=null">
+
+        <div class="text-center">
+            <h3>Current Temperature is <b>{{model.current.apparentTemperature}}</b>.</h3>
+            <h3> <span class="glyphicon glyphicon-cloud">Weather Summary is <b>{{model.current.summary}}</b></span></h3>
+
+        </div>
+        <br>
+        <div class="col-xs-12 col-md-10 text-right text-center">
+            <h4>Summary of Weather for the week is <b>{{model.weeksummary}}</b></h4>
+            <table class="table table-responsive table-bordered table-striped">
+                <tr>
+                    <td>Day</td>
+                    <td>Maximum Temperature</td>
+                    <td>Minimum Temperature</td>
+                    <td>Summary</td>
+                    <td>Humidity</td>
+                </tr>
+                <tr ng-repeat="data in model.weekdata">
+                    <td>{{data.time * 1000 | date:'MM-dd-yyyy'}}</td>
+                    <td>{{ data.temperatureMax }}</td>
+                    <td>{{ data. temperatureMin}}</td>
+                    <td>{{ data. summary}}</td>
+                    <td>{{data.humidity}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
